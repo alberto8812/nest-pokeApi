@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mongo-db:
+    image: mongo:7.0
+    restart: always
+    environment:
+       MONGODB_DATABASE: nest-pokemon
+       MONGO_INITDB_ROOT_USERNAME: nest-pokemon
+       MONGO_INITDB_ROOT_PASSWORD: pokedex
+    volumes:
+      - ./mongo:/data/db
+
+    ports:
+      - 27017:27017
+    
+      
