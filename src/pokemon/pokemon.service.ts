@@ -37,8 +37,9 @@ export class PokemonService {
     }
   }
 
-  findAll() {
-    return `This action returns all pokemon`;
+  async findAll() {
+    const pokemon =await this.pokemonModel.find();
+    return pokemon;
   }
 
   async findOne(term: string) {
@@ -84,9 +85,14 @@ export class PokemonService {
     }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} pokemon`;
+  async remove(id: string) {
+
+    // const pokemon= await this.findOne(id);
+    // await pokemon.deleteOne(); 
+    return {id};
   }
+
+
 
   private hamdleException(error: any) {
     if (error.code === 11000) {
