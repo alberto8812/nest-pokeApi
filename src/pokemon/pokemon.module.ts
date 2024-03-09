@@ -14,6 +14,7 @@ import { Pokemon, PokemonScgema } from './entities/pokemon.entity';
         schema:PokemonScgema,
       }
     ])//pide la defincion de los modelos
-  ]
+  ],
+  exports:[MongooseModule]
 })
 export class PokemonModule {}
