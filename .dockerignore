@@ -1,0 +1,5 @@
+dist/
+bide_modules/
+.gitignore
+
+.git/
