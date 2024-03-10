@@ -9,15 +9,14 @@ import { AxiosAdapter } from 'src/common/adapters/axios.adapter';
 @Injectable()
 export class SeedService {
   //para que no cree una dependencia oculta
-  private readonly http:AxiosAdapter
   constructor(
-   @InjectModel(Pokemon.name)
-   private readonly pokemonModel: Model<Pokemon>, //model de mong, y el generico de la entity
+    @InjectModel(Pokemon.name)
+    private readonly pokemonModel: Model<Pokemon>, //model de mong, y el generico de la entity
+    private readonly http:AxiosAdapter
  ) {}
 
 
  async executeSeed(){
-
   await this.pokemonModel.deleteMany({});
 
   const data= await this.http.get<PokeResponse>('https://pokeapi.co/api/v2/pokemon?limit=650');
